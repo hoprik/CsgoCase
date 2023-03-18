@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+body{
+    background-color: rgb(29, 34, 61);
+}
+
+.weapon{
+    border-radius:10px;
+    background-color: #00000039;
+    height: 200px;
+}
+
+
+.caseAvatar{
+    margin: 0 auto;
+}
+
+.case{
+	box-shadow: 0px 4px 19px -7px #000000;
+	background-color:#b497c7;
+	border-radius:10px;
+	border:3px solid #9d8ba3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:20px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+    width: 45%;
+    margin: 5px auto;
+}
+
+.case:hover {
+	background-color:#a891b8;
+}
+
+.case:active {
+	position:relative;
+	top:1px;
+}
+
+.thing {
+    background-color: #00000039;
+    height: auto;
+    width: 100vh;
+    margin: auto auto;
+    padding: 10px;
+    display: flex;
+    padding: auto;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+/*НЕ ТОРОГАТЬ!!!!!*/
+
+  *::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff00;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #9d8ba3;
+    border-radius: 10px;
+    border: 3px solid #ffffff00;
+  }
+
+.drops::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 1px;
+    border-radius: 10px;
+}
+
+
+.drops{
+    cursor: grab;
+    display: flex;
+    margin: 50px auto;
+    width: 100%;
+    overflow-x: scroll;
+
+}
+.drops.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.drop{
+    border-radius:10px;
+	border:3px solid rgb(0, 0, 0);
+    background-color: #00000039;
+    width: 200px;
+    padding: 7px;
+    margin: 5px;
+}
+
+.rarity{
+    background-color: rgb(232, 60, 60);
+    width: 100%;
+    height: 10px;
+    border-radius:10px;
+}
+
+.nameDrop{
+    font-family: 'Noto Sans', sans-serif;
+	font-size:20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.nameSkin{
+    font-family: 'Noto Sans', sans-serif;
+	font-size:15px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.autors{
+    font-family: 'Noto Sans', sans-serif;
+	font-size:15px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #00000039;
+    margin: 9px auto;
+    width: 10%;
+    border-radius: 15px 15px;
+}
+
+.caseOpening{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
