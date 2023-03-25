@@ -132,7 +132,26 @@ body{
 }
 
 .caseOpening{
+    position: relative;
+    top: -200px;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
+    overflow: scroll;
+}
+
+.dropC{
+    border-radius:10px;
+	border:3px solid rgb(0, 0, 0);
+    background-color: #00000039;
+    width: 200px;
+    padding: 7px;
+    margin: 2px;
+}
+
+.lineCase{
+    position: relative;
+    margin: 0 auto;
+    background-color: aliceblue;
+    width:3px;
+    height: 200px;
 }
