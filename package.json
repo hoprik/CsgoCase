@@ -1,0 +1,22 @@
+{
+  "name": "csgocase",
+  "version": "1.0.0",
+  "description": "csgo case",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoprik/CsgoCase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoprik/CsgoCase/issues"
+  },
+  "homepage": "https://github.com/hoprik/CsgoCase#readme",
+  "dependencies": {
+    "three": "^0.150.1"
+  }
+}

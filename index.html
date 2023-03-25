@@ -9,19 +9,29 @@
 </head>
 <body>
     <div class="thing">
-    <!---<img src="untitled.png" class="caseAvatar" alt="" width="700">!-->
-    <div class="caseOpenWrapper">
-        <div class="lineCase" align="center"></div>
-        <div class="caseOpening">
+        <div class="caseShow"></div>
+        <div class="caseOpenWrapper">   
+            <div class="lineCase"></div>
+            <div class="caseOpening">
+            </div>
         </div>
-    </div>
     <button class="case">Open case</button>
         <div class="drops">
-
+        <div class="caseOpening">
+        </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+                "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js"
+            }
+        }
+    </script>
+
+    <script src="script.js" type="module"></script>
 </body>
 <footer>
     <p class="autors">BY HOPRIK & NBB</p>

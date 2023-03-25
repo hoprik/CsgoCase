@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 class Items{
     name;
     skin;
@@ -11,12 +13,13 @@ class Items{
     }
 }
 
-let drops = [new Items("M4A1-S", "Decimator", 0 , "items/m4a1-s/1.webp"),
+let drops = [new Items("M4A1-S", "Decimator", 4 , "items/m4a1-s/1.webp"),
     new Items("Sawed-Off", "Apocalypto", 3, "items/sawed/1.webp"), 
     new Items("AWP", "Gungnir", 5, "items/awp/1.webp"),
     new Items("AK-47", "Neon Rider", 5, "items/ak-47/1.webp"),
     new Items("Galil AR", "Phoenix Blacklight", 3, "items/galil/1.webp"),
     new Items("USP-S", "Target Acquired", 3, "items/usp-s/1.webp"),
+    new Items("SG 553", "Integrale", 4, "items/sg-553/1.webp"),
     new Items("???", "Knife", 6, "items/rarity.webp")]
 
 
@@ -103,7 +106,7 @@ slider.addEventListener('mousemove', (e) => {
 const button = document.querySelector(".case")
 
 let caseFild = document.querySelector(".caseOpening")
-let pixel;
+let pixel;  
 let dropInCaseArray = []
 let audioCase;
 
@@ -132,27 +135,28 @@ function openCase(){
                 id++
             }
             const cof = window.innerWidth/caseFild.offsetWidth
-            let right =arrayDropInCase.filter(v => v.pos > caseFild.offsetWidth);
-            let left =arrayDropInCase.filter(v => v.pos < caseFild.offsetWidth);
-            right = right[0]
-            left = left[left.length-1]
+            // let right =arrayDropInCase.filter(v => v.pos > window.innerWidth);
+            // console.log(right);
+            let left =arrayDropInCase.filter(v => v.pos < window.innerWidth/2);
+            //right = right[0]
+            current = left[left.length-1]
 
-            if(left.pos<right.pos && left.pos>caseFild.offsetWidth){
-                current = left
-                console.log(5);
-            }
-            else if(right.pos<left.pos && right.pos>caseFild.offsetWidth){
-                current = right
-                console.log(96);
-            }
-            if(left.pos<right.pos && left.pos<caseFild.offsetWidth){
-                current = left
-                console.log(5);
-            }
-            else if(right.pos<left.pos && right.pos<caseFild.offsetWidth){
-                current = right
-                console.log(96);
-            }
+            // if(left.pos<right.pos && left.pos>caseFild.offsetWidth){
+            //     current = left
+            //     console.log(5);
+            // }
+            // else if(right.pos<left.pos && right.pos>caseFild.offsetWidth){
+            //     current = right
+            //     console.log(96);
+            // }
+            // if(left.pos<right.pos && left.pos<caseFild.offsetWidth){
+            //     current = left
+            //     console.log(5);
+            // }
+            // else if(right.pos<left.pos && right.pos<caseFild.offsetWidth){
+            //     current = right
+            //     console.log(96);
+            // }
 
             let dropWin = dropInCaseArray[current.id]
             console.log(current.id);
@@ -163,7 +167,6 @@ function openCase(){
             dropInCaseArray = []
             audioCase = "";  
             id = 0;
-            right = 0
             arrayDropInCase = [];
             audioManager("audio/itemShow.mp3")
         }
@@ -185,6 +188,10 @@ function genItemsForCase(drops, countObject){
             let dropRarity = Object.values(drops.filter(item => item.rarity==0))
             genDropCart(dropRarity)
         }
+        else if(chanceRandom(85)){
+            let dropRarity = Object.values(drops.filter(item => item.rarity==6))
+            genDropCart(dropRarity)
+        }
         else if(chanceRandom(55)){
             let dropRarity = Object.values(drops.filter(item => item.rarity==1))
             genDropCart(dropRarity)
@@ -204,10 +211,6 @@ function genItemsForCase(drops, countObject){
         else if(chanceRandom(5)){
             let dropRarity = Object.values(drops.filter(item => item.rarity==5))
             genDropCart(dropRarity);
-        }
-        else if(chanceRandom(1)){
-            let dropRarity = Object.values(drops.filter(item => item.rarity==6))
-            genDropCart(dropRarity)
         }
         else{
             let dropRarity = Object.values(drops.filter(item => item.rarity==7))
@@ -261,3 +264,33 @@ function chanceRandom(chance) {
       return false;
     }
   }
+
+// init
+
+const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
+camera.position.z = 1;
+
+const scene = new THREE.Scene();
+
+const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+const material = new THREE.MeshNormalMaterial();
+
+const mesh = new THREE.Mesh( geometry, material );
+scene.add( mesh );
+
+const renderer = new THREE.WebGLRenderer( { antialias: true } );
+renderer.setSize( 100, 50);
+renderer.domElement.className="caseShowItem"
+renderer.setAnimationLoop( animation );
+document.querySelector(".caseShow").appendChild( renderer.domElement );
+
+// animation
+
+function animation( time ) {
+
+	mesh.rotation.x = time / 2000;
+	mesh.rotation.y = time / 1000;
+
+	renderer.render( scene, camera );
+
+}
