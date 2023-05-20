@@ -162,8 +162,8 @@ function openCase(){
             console.log(current.id);
             console.log(current.iterator);
             pixel = 0
-            alert(dropWin.skin)
-            //caseFild.innerHTML=""
+            console.log(dropWin.skin);
+            document.body.insertAdjacentHTML("afterbegin", `<div class="showCase"><div class="caseShowItem"><img class="weapon" src="${dropWin.img}" style="height: 400px; object-fit: cover;"><p class="nameDrop">${dropWin.name}</p><p class="nameSkin">${dropWin.skin}</p><div class="rarity" style="background-color: ${getColorByID(dropWin.rarity)}; width: 540px;"></div></div></div>`)
             dropInCaseArray = []
             audioCase = "";  
             id = 0;
@@ -265,32 +265,32 @@ function chanceRandom(chance) {
     }
   }
 
-// init
 
-const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
-camera.position.z = 1;
-
-const scene = new THREE.Scene();
-
-const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-const material = new THREE.MeshNormalMaterial();
-
-const mesh = new THREE.Mesh( geometry, material );
-scene.add( mesh );
-
-const renderer = new THREE.WebGLRenderer( { antialias: true } );
-renderer.setSize( 100, 50);
-renderer.domElement.className="caseShowItem"
-renderer.setAnimationLoop( animation );
-document.querySelector(".caseShow").appendChild( renderer.domElement );
-
-// animation
-
-function animation( time ) {
-
-	mesh.rotation.x = time / 2000;
-	mesh.rotation.y = time / 1000;
-
-	renderer.render( scene, camera );
-
+function getColorByID(id){
+    let color
+    if (id == 0){
+        color = "#d4d4d4";
+    }
+    else if (id==1){
+        color = "#7692cf";
+    }
+    else if (id==2){
+        color = "#3666cf";
+    }
+    else if (id==3){
+        color = "#8c54cc";
+    }
+    else if (id==4){
+        color = "#d751db";
+    }
+    else if (id==5){
+        color = "#e6514c";
+    }
+    else if (id==6){
+        color = "#edc524";
+    }
+    else if (id==7){
+        color = "#a86218";
+    }
+    return color
 }

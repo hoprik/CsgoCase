@@ -2,6 +2,8 @@
 
 body{
     background-color: rgb(29, 34, 61);
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .weapon{
@@ -159,4 +161,24 @@ body{
 
 .caseOpenWrapper{
     height: 250px;
+}
+
+.showCase{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(34, 34, 34, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(19, 19, 19, 0.3); 
+    z-index: 99;
+}
+
+
+.caseShowItem{
+    margin: auto auto;
+    width: fit-content;
+    height: fit-content;
 }
