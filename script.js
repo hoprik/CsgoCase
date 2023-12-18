@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+//import {NodeMaterial} from 'three/addons/nodes/materials/NodeMaterial.js';
 
 class Items{
     name;
@@ -162,7 +164,7 @@ function openCase(){
             console.log(current.id);
             console.log(current.iterator);
             pixel = 0
-            alert(dropWin.skin)
+            alert("Вам выпал: "+dropWin.skin)
             //caseFild.innerHTML=""
             dropInCaseArray = []
             audioCase = "";  
@@ -264,33 +266,3 @@ function chanceRandom(chance) {
       return false;
     }
   }
-
-// init
-
-const camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
-camera.position.z = 1;
-
-const scene = new THREE.Scene();
-
-const geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-const material = new THREE.MeshNormalMaterial();
-
-const mesh = new THREE.Mesh( geometry, material );
-scene.add( mesh );
-
-const renderer = new THREE.WebGLRenderer( { antialias: true } );
-renderer.setSize( 100, 50);
-renderer.domElement.className="caseShowItem"
-renderer.setAnimationLoop( animation );
-document.querySelector(".caseShow").appendChild( renderer.domElement );
-
-// animation
-
-function animation( time ) {
-
-	mesh.rotation.x = time / 2000;
-	mesh.rotation.y = time / 1000;
-
-	renderer.render( scene, camera );
-
-}
